@@ -1,3 +1,57 @@
+.encode-sans-expanded-thin {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.encode-sans-expanded-extralight {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.encode-sans-expanded-light {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.encode-sans-expanded-regular {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.encode-sans-expanded-medium {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.encode-sans-expanded-semibold {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.encode-sans-expanded-bold {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.encode-sans-expanded-extrabold {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.encode-sans-expanded-black {
+    font-family: "Encode Sans Expanded", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
 html {
   font-size: 14px;
 }
