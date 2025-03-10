@@ -17,6 +17,8 @@ namespace GameZone.Controllers
         }
         public IActionResult Create()
         {
+            ViewData["Title"] = "Add Game"; // Add this line to set the ViewData
+
             CreateGameFormViewModel viewModel = new()
             {
                 Categories = _context.Categories
@@ -36,6 +38,13 @@ namespace GameZone.Controllers
                 .ToList(),
             }; 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CreateGameFormViewModel model)
+        {
+            return View();
         }
     }
 }
