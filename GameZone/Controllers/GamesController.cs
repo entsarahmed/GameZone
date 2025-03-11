@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace GameZone.Controllers
+﻿namespace GameZone.Controllers
 {
     public class GamesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ICategoriesService _categoriesService;
+        private readonly IDevicesService _devicesService;
 
-        public GamesController(ApplicationDbContext context)
+        public GamesController(ApplicationDbContext context, ICategoriesService categoriesService, IDevicesService devicesService)
         {
             _context=context;
+            _categoriesService=categoriesService;
+            _devicesService=devicesService;
         }
 
         public IActionResult Index()
@@ -21,21 +23,8 @@ namespace GameZone.Controllers
 
             CreateGameFormViewModel viewModel = new()
             {
-                Categories = _context.Categories
-                .Select(C => new SelectListItem{
-                    Value = C.Id.ToString(),
-                    Text = C.Name
-                })
-                .OrderBy( c => c.Text)
-                .ToList(),
-                Devices = _context.Devices
-                .Select(D => new SelectListItem
-                {
-                    Value= D.Id.ToString(),
-                    Text= D.Name
-                })
-                .OrderBy(D => D.Text)
-                .ToList(),
+                Categories = _categoriesService.GetSelectList(),
+                Devices = _devicesService.GetSelectList(),
             }; 
             return View(viewModel);
         }
@@ -44,7 +33,16 @@ namespace GameZone.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CreateGameFormViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                model.Categories = _categoriesService.GetSelectList();
+                model.Devices =_devicesService.GetSelectList();
+                return View(model);
+            }
+
+            //Save Game inside Database
+            //Save Cover inside Server
+            return RedirectToAction(nameof(Index));
         }
     }
 }

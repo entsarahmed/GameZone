@@ -8,6 +8,9 @@ options.UseSqlServer(connectionString)
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
+builder.Services.AddScoped<IDevicesService, DevicesService>();
+//Allow Dependence Injection with ICategoriesService
 
 var app = builder.Build();
 
