@@ -16,7 +16,7 @@
             <div>
                 <label asp-for="CategoryId" class="form-label mt-4"></label>
                 <select class="form-select" asp-for ="CategoryId" asp-items="Model.Categories">
-                    <option> ---- Select Category ----</option>
+                    <option value=""> ---- Select Category ----</option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger d-block"></span>
             </div>
@@ -46,3 +46,7 @@
           </div>
       </div>
   </form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
