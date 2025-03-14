@@ -35,7 +35,7 @@
             <div>
                 <label asp-for="Cover" class="form-label mt-4"></label>
                 <input type="file" asp-for="Cover" class="form-control" />
-                <small class="form-text text-muted">Only .jpg, .jpes, .png files are allowed with max size 1MB.</small>
+                <small class="form-text text-muted">Only @FileSettings.AllowedExtensions files are allowed with max size @(FileSettings.MaxFileSizeInBytes)MB.</small>
                 <span asp-validation-for="Cover" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-light text-black mt-4">Save</button>
