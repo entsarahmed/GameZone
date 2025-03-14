@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using GameZone.Attributes;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GameZone.ViewModels
 {
@@ -10,10 +11,12 @@ namespace GameZone.ViewModels
         public int CategoryId { get; set; }
         public IEnumerable<SelectListItem> Categories { get; set; } = Enumerable.Empty<SelectListItem>();
         [Display(Name = "Supported Devices")]
-        public List<int> SelectedDevices { get; set; } = new List<int>();
+        public List<int> SelectedDevices { get; set; } = default!;
         public IEnumerable<SelectListItem> Devices { get; set; } = Enumerable.Empty<SelectListItem>();
         [MaxLength(2500)]
         public string Description { get; set; } = string.Empty;
+        //Validate Extension and Size
+        [AllowedExtensions(FileSettings.AllowedExtensions)]
         public IFormFile Cover { get; set; } = default!;
 
     }

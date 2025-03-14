@@ -14,6 +14,7 @@ namespace GameZone.Services
             return _dbContext.Categories.Select
                 (c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name})
                 .OrderBy(c => c.Text)
+                .AsNoTracking() // improve the Performance
                 .ToList();
         }
     }

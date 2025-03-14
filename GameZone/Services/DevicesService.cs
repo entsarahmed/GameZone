@@ -17,6 +17,7 @@ namespace GameZone.Services
                 Text = d.Name,
             })
                .OrderBy(d => d.Text)
+               .AsNoTracking() //improve the Performance because EF No Tracking for Categories & Devices after selection with Database
                .ToList();
         }
     }
