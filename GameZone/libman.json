@@ -12,6 +12,10 @@
         "font/bootstrap-icons.json",
         "font/bootstrap-icons.min.css"
       ]
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
     }
   ]
 }
