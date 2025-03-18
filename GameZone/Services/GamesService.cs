@@ -1,4 +1,5 @@
-﻿namespace GameZone.Services
+﻿
+namespace GameZone.Services
 {
     public class GamesService : IGamesService
     {
@@ -11,6 +12,13 @@
             _dbContext=dbContext;
             _webHostEnvironment=webHostEnvironment;
             _imagesPath = $"{_webHostEnvironment.WebRootPath}{FileSettings.ImagePath}";
+        }
+        public IEnumerable<Game> GetAll()
+        {
+            var games = _dbContext.Games
+                .AsNoTracking()
+                .ToList();
+            return games;
         }
         public async Task Create(CreateGameFormViewModel model)
         {   // Save Cover inside Server
@@ -34,5 +42,7 @@
             _dbContext.SaveChanges();
 
         }
+
+       
     }
 }
