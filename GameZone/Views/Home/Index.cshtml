@@ -1,8 +1,25 @@
-﻿@{
+﻿@model IEnumerable<Game>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (!Model.Any())
+{
+    <div class="alert  alert-warning mt-5">
+        <h4 class="alert-heading">No Games!</h4>
+        <p class="mb-0">No Games were added Yet.</p>
+    </div>
+}else{
+   <div class="row mt-5">
+       @foreach(var game in Model)
+       {
+         <div class="col-lg-4 col-md-6">
+                <div class="card border-success mb-3" style="max-width: 20rem;">
+                    <div class="card-body" style="background-image: url(@($"{FileSettings.ImagePath}/{game.Cover}"))">
+                        <h4 class="card-title">Success card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+         </div>
+       }
+   </div>
+}
