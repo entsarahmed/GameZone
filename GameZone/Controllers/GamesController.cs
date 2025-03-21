@@ -17,7 +17,8 @@
 
         public IActionResult Index()
         {
-            return View();
+          var games = _gamesService.GetAll();
+            return View(games);
         }
         public IActionResult Create()
         {
