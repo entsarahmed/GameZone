@@ -1,115 +1,85 @@
-.encode-sans-expanded-thin {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 100;
-    font-style: normal;
-}
-
-.encode-sans-expanded-extralight {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 200;
-    font-style: normal;
-}
-
-.encode-sans-expanded-light {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.encode-sans-expanded-regular {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.encode-sans-expanded-medium {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.encode-sans-expanded-semibold {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.encode-sans-expanded-bold {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.encode-sans-expanded-extrabold {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 800;
-    font-style: normal;
-}
-
-.encode-sans-expanded-black {
-    font-family: "Encode Sans Expanded", serif;
-    font-weight: 900;
-    font-style: normal;
+* {
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-}
-/*Start Custom Styles*/
-
-.cover-preview{
-    max-height: 500px;
-    border-radius: 8px;
+    margin-bottom: 60px;
 }
 
-/*End Custom Styles*/
-/*Start Override select2*/
-.select2-container--default .select2-selection--single{
-    background-color:#30115e;
-    border : none;
+/* Start override select2 */
+.select2-container--default .select2-selection--single {
+    background-color: #30115e;
+    border: none;
     border-radius: 2px;
-    height:38px;
+    height: 38px;
     display: flex;
     align-items: center;
 }
-.select2-container--default .select2-selection--single .select2-selection_arrow{
-    height:100%;
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 100%;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #fff;
+        line-height: 38px;
+    }
+
+.select2-dropdown.select2-dropdown--below {
+    background-color: #30115e;
 }
-.select2-container--default .select2-selection--single .select2-selection_rendered{
-    color:#fff;
-    line-height: 38px;
-}
-.select2-dropdown.select2-dropdown--below{
-    background-color:#30115e;
-}
-.select2-container--default.select2-results_option--highlighted[area-seleted]{
-    background-color:#7158fb;
-}
-.select2-container--default .select2-results_option[aria-selected=true] {
+
+.select2-container--default.select2-results__option--highlighted[aria-selected] {
     background-color: #7158fb;
 }
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #7158fb;
+}
+
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-selection--multiple {
     background-color: #30115e;
-    border:none;
+    border: none;
+    border-radius: 2px;
 }
-/*End Override select2*/
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #450dad;
+        border: 1px solid #250d49;
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+        color: #ffffff;
+    }
+
+.select2 {
+    width: 100% !important;
+}
+/* End override select2 */
+
+/* Start Custom Styles */
+.cover-preview {
+    max-height: 500px;
+    border-radius: 8px;
+}
+/* End Custom Styles */
