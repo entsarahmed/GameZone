@@ -23,6 +23,16 @@ namespace GameZone.Services
                 .ToList();
             return games;
         }
+
+        public Game? GetById(int id)
+        {
+            return _dbContext.Games
+                .Include(g => g.Category)
+                .Include(g => g.Devices)
+                .ThenInclude(d => d.Device)
+                .AsNoTracking()
+                .SingleOrDefault(g => g.Id == id);
+        }
         public async Task Create(CreateGameFormViewModel model)
         {   // Save Cover inside Server
             //Save Game inside Database
@@ -46,6 +56,6 @@ namespace GameZone.Services
 
         }
 
-       
+      
     }
 }

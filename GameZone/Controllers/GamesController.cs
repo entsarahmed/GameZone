@@ -15,11 +15,28 @@
              _gamesService=gamesService;
         }
 
+        #region Index
         public IActionResult Index()
         {
-          var games = _gamesService.GetAll();
+            var games = _gamesService.GetAll();
             return View(games);
         }
+
+        #endregion
+
+        #region Details
+
+        public IActionResult Details(int id)
+        {
+            var game = _gamesService.GetById(id);
+           if (game == null) 
+                return NotFound();
+            return View(game);
+        }
+
+        #endregion
+
+        #region Create
         public IActionResult Create()
         {
             ViewData["Title"] = "Add Game"; // Add this line to set the ViewData
@@ -28,7 +45,7 @@
             {
                 Categories = _categoriesService.GetSelectList(),
                 Devices = _devicesService.GetSelectList(),
-            }; 
+            };
             return View(viewModel);
         }
 
@@ -45,8 +62,13 @@
 
             //Save Game inside Database
             //Save Cover inside Server
-           await _gamesService.Create(model);
+            await _gamesService.Create(model);
             return RedirectToAction(nameof(Index));
         }
+
+        #endregion
+
+        
+
     }
 }
