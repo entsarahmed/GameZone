@@ -68,7 +68,28 @@
 
         #endregion
 
-        
+        #region Update
+
+        public IActionResult Edit(int id)
+        {
+            var game = _gamesService.GetById(id);
+            if (game is null)
+                return NotFound();
+            EditGameFormViewModel viewModel = new()
+            {//Make Initialization  for values of ViewModel Need it.
+                Id = id,
+                Name = game.Name,
+                Description = game.Description,
+                CategoryId = game.CategoryId,
+                Categories = _categoriesService.GetSelectList(),
+                SelectedDevices=game.Devices.Select(d => d.DeviceId).ToList(),
+                Devices=_devicesService.GetSelectList(),
+                CurrentCover = game.Cover,
+            };
+            return View(viewModel);
+            
+        }     
+        #endregion
 
     }
 }
