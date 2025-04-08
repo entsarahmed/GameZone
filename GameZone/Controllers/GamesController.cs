@@ -113,9 +113,10 @@
 
         #region Delete
 
-       // [HttpDelete]
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
+           
             var isDelete = _gamesService.Delete(id);
 
             return isDelete ? Ok() : BadRequest();
